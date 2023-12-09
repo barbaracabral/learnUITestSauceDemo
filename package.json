@@ -4,8 +4,10 @@
   "description": "Aprendendo testes de UI com Cypress",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test"
-  },
+    "start": "npx cypress open",
+    "cy:run": "npx cypress run",
+    "test": "npx cypress run"
+  }, 
   "keywords": [
     "ui",
     "test",
