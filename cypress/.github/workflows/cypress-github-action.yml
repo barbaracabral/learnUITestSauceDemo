@@ -1,4 +1,4 @@
-name: Cypress Tests Run on Pipeline
+name: Run Cypress Tests on Pipeline
 on: [push]
 jobs:
   cypress-run:
