@@ -1,0 +1,20 @@
+{
+  "name": "learnuitestsaucedemo",
+  "version": "1.0.0",
+  "description": "Aprendendo testes de UI com Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "keywords": [
+    "ui",
+    "test",
+    "cypress"
+  ],
+  "author": "Bárbara Cabral",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^13.6.1",
+    "cypress-localstorage-commands": "^2.2.5"
+  }
+}
