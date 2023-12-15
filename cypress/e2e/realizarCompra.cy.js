@@ -1,3 +1,6 @@
+let username = "standard_user";
+let password = "secret_sauce";
+
 describe('Realizar Compra spec', () => {
     beforeEach(() => {
         cy.restoreLocalStorage();
@@ -6,10 +9,11 @@ describe('Realizar Compra spec', () => {
         cy.saveLocalStorage();
     });
 
-    it('realizar login', () => {
+    it.only('realizar compra', () => {
         cy.visit('/');
-        cy.login("standard_user","secret_sauce" );
-        
+        cy.programmaticLogin(username);
+
+        cy.visit('/inventory.html');
         //adicionar produtos ao carrinho
         cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click();
         cy.get('[data-test="add-to-cart-sauce-labs-bike-light"]').click();
