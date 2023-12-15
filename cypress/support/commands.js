@@ -11,9 +11,33 @@
 //
 //-- This is a parent command --
 Cypress.Commands.add('login', (username, password) => {
+    cy.session(['session-username', username], () => {
+        cy.visit('/');
+        cy.get('#user-name').type(username);
+        cy.get('[data-test="password"]').type(password);
+        cy.get('[data-test="login-button"]').click();
+    },
+        {
+            cacheAcrossSpecs: true
+        }
+    )
+})
+Cypress.Commands.add('programmaticLogin', (username) => {
+    cy.setCookie('session-username', username)
+    cy.visit('/inventory.html', { failOnStatusCode: false })
+})
+Cypress.Commands.add('loginWithAPI', (username, password) => {
+    cy.visit('/');
     cy.get('#user-name').type(username);
     cy.get('[data-test="password"]').type(password);
     cy.get('[data-test="login-button"]').click();
+    cy.session(['session-username', username], (username) => {
+        return username
+    },
+        {
+            cacheAcrossSpecs: true
+        }
+    )
 })
 // Cypress.Commands.add('login', (username, password) => {
 //     cy.session(
